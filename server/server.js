@@ -1,18 +1,18 @@
-// import express from 'express'
-// import cors from 'cors'
-// import 'dotenv/config'
-// import connectDB from './config/mongodb.js'
-// import userRouter from './routes/userRoutes.js'
-// import imageRouter from './routes/imageRouters.js'
-// const PORT = process.env.PORT || 4000
-// const app = express()
-// app.use(express.json())
-// app.use(cors())
-// await connectDB()
-// app.use('/api/user',userRouter)
-// app.use('/api/image',imageRouter)
-// app.get('/',(req,res)=>res.send("API Working"))
-// app.listen(PORT,()=>console.log('server running on port'+PORT))
+import express from 'express'
+import cors from 'cors'
+import 'dotenv/config'
+import connectDB from './config/mongodb.js'
+import userRouter from './routes/userRoutes.js'
+import imageRouter from './routes/imageRouters.js'
+const PORT = process.env.PORT || 4000
+const app = express()
+app.use(express.json())
+app.use(cors())
+await connectDB()
+app.use('/api/user',userRouter)
+app.use('/api/image',imageRouter)
+app.get('/',(req,res)=>res.send("API Working"))
+app.listen(PORT,()=>console.log('server running on port'+PORT))
 
 // import express from 'express';
 // import cors from 'cors';
@@ -51,36 +51,36 @@
 // export default app;
 
 
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
-import connectDB from './config/mongodb.js';
-import userRouter from './routes/userRoutes.js';
-import imageRouter from './routes/imageRouters.js';
+// import express from 'express';
+// import cors from 'cors';
+// import 'dotenv/config';
+// import connectDB from './config/mongodb.js';
+// import userRouter from './routes/userRoutes.js';
+// import imageRouter from './routes/imageRouters.js';
 
-const app = express();
+// const app = express();
 
-// ✅ Correct CORS Configuration
-app.use(cors({
-    origin: "https://text-image-frontend.vercel.app", // Allow frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true  // Important for authentication (cookies/tokens)
-}));
+// // ✅ Correct CORS Configuration
+// app.use(cors({
+//     origin: "https://text-image-frontend.vercel.app", // Allow frontend origin
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true  // Important for authentication (cookies/tokens)
+// }));
 
-// ✅ Handle Preflight Requests (OPTIONS)
-app.options('*', cors());
+// // ✅ Handle Preflight Requests (OPTIONS)
+// app.options('*', cors());
 
-// Middleware
-app.use(express.json());
+// // Middleware
+// app.use(express.json());
 
-// Database Connection
-connectDB().then(() => console.log('MongoDB connected')).catch(err => console.error('MongoDB connection failed:', err));
+// // Database Connection
+// connectDB().then(() => console.log('MongoDB connected')).catch(err => console.error('MongoDB connection failed:', err));
 
-// Routes
-app.use('/api/user', userRouter);
-app.use('/api/image', imageRouter);
-app.get('/', (req, res) => res.send('API Working'));
+// // Routes
+// app.use('/api/user', userRouter);
+// app.use('/api/image', imageRouter);
+// app.get('/', (req, res) => res.send('API Working'));
 
-// ✅ Export for Vercel (No app.listen)
-export default app;
+// // ✅ Export for Vercel (No app.listen)
+// export default app;

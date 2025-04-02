@@ -31,7 +31,7 @@ const Header = () => {
         <p>Best text to image Generator</p>
         <img src={assets.star_icon} alt="" />
      </motion.div>
-     <motion.h1 className='text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>Turn text to  <span className='text-blue-600'
+     <motion.h1 className='text-4xl max-w-[300px] sm:text-7xl sm:max-w-[590px] mx-auto mt-10 text-center'>Turn text to  <span className='text-green-600'
      initial={{opacity:0,y:20}}
      animate={{opacity:1,y:0}}
      transition={{delay:0.4,duration:2}}
@@ -42,13 +42,13 @@ const Header = () => {
       animate={{opacity:1}}
       transition={{delay:0.6,duration:0.8}}
       >Unleash your creativity with AI. Turn Your imagination into visual art in seconds - just type,and watch the magic happen.</motion.p>
-     <motion.button onClick={onClickHandler} className='sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2.5 flex items-center gap-2 rounded-full'
+     <motion.button onClick={onClickHandler} className='sm:text-lg text-white bg-green-600 w-auto mt-8 px-12 py-2.5 flex items-center gap-2 rounded-full'
      whileHover={{scale:1.05}}
      whileTap={{scale:0.95}}
      initial={{opacity:0}}
      animate={{opacity:1}}
      transition={{default:{duration:0.5},opacity:{delay:0.8,duration:1}}}
-     >Generate Images
+     >Generate Images...
         <img className='h-6' src={assets.star_group} alt="" />
      </motion.button>
 
@@ -69,7 +69,7 @@ const Header = () => {
      initial={{opacity:0}}
      animate={{opacity:1}}
      transition={{delay:1.2,duration:0.8}} 
-     className='mt-2 text-neutral-600'>Generated images from imagify</motion.p>
+     className='mt-2 text-neutral-600'>Illustration Examples.</motion.p>
     </motion.div>
   )
 }

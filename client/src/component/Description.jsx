@@ -9,7 +9,7 @@ const Description = () => {
       <div className='flex flex-col gap-5 md:gap-14 md:flex-row items-center'>
         <img src={assets.sample_img_1} alt="" className='w-80 xl:w-96 rounded-lg' />
         <div>
-            <h2 className='text-3xl font-medium max-w-lg mb-4'>Introducing the AI-powered Text to Image Generator</h2>
+            <h2 className='text-3xl font-medium max-w-lg mb-4 text-green-700'>Introducing the AI-powered Text to Image Generator</h2>
             <p className='text-gray-600 mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nam architecto voluptas dolor corrupti, dolorum repudiandae quisquam ipsam laudantium odit asperiores quis harum magnam. Facilis consequuntur totam amet laboriosam! Libero vitae aliquid fugit perspiciatis esse velit dolor asperiores illum quod.</p>
             <p className='text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias labore sit ducimus repellendus debitis atque suscipit recusandae expedita corrupti ut laborum voluptatibus itaque magnam optio consequatur quo cumque hic illo repudiandae facilis commodi, esse necessitatibus ad. Labore magnam dolor ipsa iste facere, vero, sequi earum impedit aperiam esse corporis perspiciatis!</p>
         </div>
