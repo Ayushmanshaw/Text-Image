@@ -60,13 +60,18 @@ import imageRouter from './routes/imageRouters.js';
 
 const app = express();
 
+// ✅ Fix CORS
+app.use(cors({
+    origin: ["https://text-image-frontend.vercel.app"], // Allow frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true  // ✅ Important for authentication (cookies/tokens)
+}));
+
+// ✅ Handle Preflight Requests (OPTIONS Method)
+app.options('*', cors());
+
 // Middleware
 app.use(express.json());
-app.use(cors({
-    origin: ["https://text-image-gules.vercel.app"], // Your frontend URL
-    methods: ["POST", "GET"],
-    credentials: true
-}));
 
 // Database Connection
 connectDB().then(() => console.log('MongoDB connected')).catch(err => console.error('MongoDB connection failed:', err));
@@ -76,5 +81,6 @@ app.use('/api/user', userRouter);
 app.use('/api/image', imageRouter);
 app.get('/', (req, res) => res.send('API Working'));
 
-// ✅ Instead of app.listen(PORT), use export default for Vercel
+// ✅ Export for Vercel (No app.listen)
 export default app;
+
