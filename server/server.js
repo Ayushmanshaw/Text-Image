@@ -21,14 +21,26 @@ import connectDB from './config/mongodb.js';
 import userRouter from './routes/userRoutes.js';
 import imageRouter from './routes/imageRouters.js';
 
+const PORT = process.env.PORT || 4000;
 const app = express();
+
+// ✅ Fixed CORS Configuration
+app.use(cors({
+    origin: ["http://localhost:5175", "https://text-image-gules.vercel.app"], // Allow both local dev and production frontend
+    methods: ["POST", "GET"],
+    credentials: true  // ✅ Fixed "credential" typo (should be "credentials")
+}));
 
 // Middleware
 app.use(express.json());
-app.use(cors());
 
-// Database Connection
-connectDB().then(() => console.log('MongoDB connected')).catch(err => console.error('MongoDB connection failed:', err));
+// Database Connection & Start Server
+connectDB()
+  .then(() => {
+      console.log('MongoDB connected');
+      app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  })
+  .catch(err => console.error('MongoDB connection failed:', err));
 
 // Routes
 app.use('/api/user', userRouter);
