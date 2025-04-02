@@ -60,14 +60,15 @@ import imageRouter from './routes/imageRouters.js';
 
 const app = express();
 
-// ✅ Fix CORS
+// ✅ Correct CORS Configuration
 app.use(cors({
-    origin: ["https://text-image-frontend.vercel.app"], // Allow frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true  // ✅ Important for authentication (cookies/tokens)
+    origin: "https://text-image-frontend.vercel.app", // Allow frontend origin
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true  // Important for authentication (cookies/tokens)
 }));
 
-// ✅ Handle Preflight Requests (OPTIONS Method)
+// ✅ Handle Preflight Requests (OPTIONS)
 app.options('*', cors());
 
 // Middleware
@@ -83,4 +84,3 @@ app.get('/', (req, res) => res.send('API Working'));
 
 // ✅ Export for Vercel (No app.listen)
 export default app;
-
